@@ -76,23 +76,29 @@
             label13 = new Label();
             lblID = new Label();
             lstFoodSchedule = new ListBox();
-            label11 = new Label();
             lbIngredients = new ListBox();
             label8 = new Label();
             label9 = new Label();
             button2 = new Button();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip2 = new MenuStrip();
+            newToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             gbSpeciesInfo.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("SimSun-ExtG", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(36, 45);
+            label1.Location = new Point(27, 63);
             label1.Name = "label1";
             label1.Size = new Size(262, 24);
             label1.TabIndex = 0;
@@ -487,7 +493,7 @@
             groupBox3.Controls.Add(lbCategory);
             groupBox3.Controls.Add(lblSpecies);
             groupBox3.Controls.Add(button1);
-            groupBox3.Location = new Point(36, 88);
+            groupBox3.Location = new Point(27, 106);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(663, 520);
             groupBox3.TabIndex = 26;
@@ -507,7 +513,7 @@
             groupBox4.Controls.Add(lblID);
             groupBox4.Controls.Add(lstFoodSchedule);
             groupBox4.Controls.Add(lstAnimals);
-            groupBox4.Location = new Point(36, 614);
+            groupBox4.Location = new Point(27, 632);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(1405, 297);
             groupBox4.TabIndex = 27;
@@ -593,18 +599,11 @@
             lstFoodSchedule.TabIndex = 26;
             lstFoodSchedule.SelectedIndexChanged += lstFoodSchedule_SelectedIndexChanged;
             // 
-            // label11
-            // 
-            label11.Location = new Point(0, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(100, 23);
-            label11.TabIndex = 40;
-            // 
             // lbIngredients
             // 
             lbIngredients.FormattingEnabled = true;
             lbIngredients.ItemHeight = 15;
-            lbIngredients.Location = new Point(733, 412);
+            lbIngredients.Location = new Point(724, 430);
             lbIngredients.Name = "lbIngredients";
             lbIngredients.Size = new Size(444, 139);
             lbIngredients.TabIndex = 37;
@@ -612,7 +611,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(733, 394);
+            label8.Location = new Point(724, 412);
             label8.Name = "label8";
             label8.Size = new Size(39, 15);
             label8.TabIndex = 37;
@@ -621,7 +620,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(833, 394);
+            label9.Location = new Point(824, 412);
             label9.Name = "label9";
             label9.Size = new Size(66, 15);
             label9.TabIndex = 41;
@@ -630,7 +629,7 @@
             // button2
             // 
             button2.BackColor = Color.DarkSeaGreen;
-            button2.Location = new Point(733, 574);
+            button2.Location = new Point(724, 592);
             button2.Name = "button2";
             button2.Size = new Size(281, 23);
             button2.TabIndex = 25;
@@ -638,19 +637,66 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 24);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1447, 24);
+            menuStrip1.TabIndex = 42;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Text = "Open";
+            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
+            // 
+            // menuStrip2
+            // 
+            menuStrip2.Location = new Point(0, 0);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.Size = new Size(1447, 24);
+            menuStrip2.TabIndex = 43;
+            menuStrip2.Text = "menuStrip2";
+            // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new Size(180, 22);
+            newToolStripMenuItem.Text = "New";
+            newToolStripMenuItem.Click += newToolStripMenuItem_Click_1;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1447, 945);
+            ClientSize = new Size(1447, 997);
             Controls.Add(button2);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(lbIngredients);
-            Controls.Add(label11);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            Controls.Add(menuStrip2);
+            MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "EcoZoo - WTS";
             groupBox1.ResumeLayout(false);
@@ -663,6 +709,8 @@
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -717,10 +765,15 @@
         private ListBox lstFoodSchedule;
         private Label lblName;
         private Label lblAge;
-        private Label label11;
         public ListBox lbIngredients;
         private Label label8;
         private Label label9;
         private Button button2;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem openToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem newToolStripMenuItem;
     }
 }

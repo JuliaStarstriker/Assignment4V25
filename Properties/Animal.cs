@@ -16,6 +16,7 @@ namespace Assignment1VT25.Properties
         public GenderType gender { get; set; }
         public Category Category { get; set; }
         public Species species { get; set; }
+       
         /// <summary>
         /// The implementation of this method is to be provided by the subclasses.
         /// The information is not available and therefore the job is delegated to subclasses
@@ -35,6 +36,11 @@ namespace Assignment1VT25.Properties
             strout = string.Format("{0,-15} {1,10}\n", "category:", Category.ToString());
 
             return strout;
+        }
+
+        public override string ToString()
+        {
+            return $"{Id}, {name}, {age}, {gender}, {species}";
         }
     }
 }

@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Drawing.Text;
 using System.Reflection.Emit;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -797,6 +798,51 @@ namespace Assignment1VT25
         {
             FoodForm newForm = new FoodForm(this);
             newForm.Show();
+        }
+
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            animalManager.SaveToFile();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            animalManager.LoadFromFile();
+
+
+            //lstAnimals = animalManager.GetAnimalInfoStrings();
+            string formattedEntry = $"Animals: {string.Join(", ", animalManager.GetAnimalInfoStrings())}";
+
+            //string animalInfo = string.Format("{0,-5} {1,-15} Age: {2,-3} Gender: {3}",
+            //                           "ID: " + animalManager.animal.Id, "Name: " + animal.name, animal.age, animal.gender);
+            //MessageBox.Show(animalManager.GetAnimalInfoStrings()[0]);
+
+            string[] pelle = animalManager.GetAnimalInfoStrings()[0].Split(", ");
+
+            if (pelle.Length >= 4)
+            {
+                string animalInfo = string.Format("{0,-5} {1,-15} Age: {2,-3} Gender: {3}",
+                                          "ID: " + pelle[0], "Name: " + pelle[1], pelle[2], pelle[3]);
+
+                this.lstAnimals.Items.Add(animalManager.GetAnimalInfoStrings()[0]);
+                //MessageBox.Show(pelle[1]);
+            }
+
+
+            //string animalInfo = string.Format("{0,-5} {1,-15} Age: {2,-3} Gender: {3}",
+            //"ID: " +pelle[0], "Name: " + pelle[0], pelle[0], pelle[3]);
+            // this.lstAnimals.Items.Add(animalManager.GetAnimalInfoStrings()[0]);
+        }
+
+        private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
