@@ -1,12 +1,11 @@
-﻿using Assignment2VT25.Assignment2V25;
-using Assignment2VT25.Properties;
+﻿using Assignment4VT25;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment1VT25.Properties
+namespace Assignment4VT25
 {
     public abstract class Animal : IAnimal
     {
@@ -40,7 +39,7 @@ namespace Assignment1VT25.Properties
 
         public override string ToString()
         {
-            return $"{Id}, {name}, {age}, {gender}, {species}";
+            return $"{Id}, {name}, {age}, {gender}";
         }
     }
 }

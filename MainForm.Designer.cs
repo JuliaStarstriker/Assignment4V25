@@ -1,4 +1,4 @@
-﻿namespace Assignment1VT25
+﻿namespace Assignment4VT25
 {
     partial class MainForm
     {
@@ -18,6 +18,7 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+
         }
 
         #region Windows Form Designer generated code
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             txtName = new TextBox();

@@ -1,12 +1,11 @@
-﻿using Assignment2VT25.Assignment2V25;
-using Assignment2VT25.Properties;
+﻿using Assignment4VT25;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment1VT25.Properties
+namespace Assignment4VT25
 {
     internal class Parrot : Bird
     {
@@ -23,7 +22,7 @@ namespace Assignment1VT25.Properties
         public void SetFoodSchedule()
         {
             foodSchedule = new FoodSchedule();
-            foodSchedule.EaterType = EaterType.Herbivore;
+            foodSchedule.eaterType = EaterType.Herbivore;
             foodSchedule.Add("Morning: fruits ");
             foodSchedule.Add("Lunch: Seeds & Nuts ");
             foodSchedule.Add("Evening: Vegetables ");

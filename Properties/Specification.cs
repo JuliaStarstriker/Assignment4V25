@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment1VT25.Properties
+namespace Assignment4VT25
 {
     public enum Species
     {

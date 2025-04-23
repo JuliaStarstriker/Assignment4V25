@@ -1,12 +1,11 @@
-﻿using Assignment2VT25.Assignment2V25;
-using Assignment2VT25.Properties;
+﻿using Assignment4VT25;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment1VT25.Properties
+namespace Assignment4VT25
 {
     internal class Butterflies : Insect
     {
@@ -23,7 +22,7 @@ namespace Assignment1VT25.Properties
         {
             foodSchedule = new FoodSchedule()
             {
-                EaterType = EaterType.Herbivore
+                eaterType = EaterType.Herbivore
             };
             foodSchedule.Add("Morning: Nectar ");
             foodSchedule.Add("Lunch: Fruit ");

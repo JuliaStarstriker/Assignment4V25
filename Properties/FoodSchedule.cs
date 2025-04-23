@@ -1,25 +1,30 @@
-﻿using Assignment1VT25.Properties;
-using Assignment2VT25.Assignment2V25;
+﻿using Assignment4VT25;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment2VT25.Properties
+namespace Assignment4VT25
 {
     public class FoodSchedule
     {
-        private EaterType eaterType;
         List<string> foodList = new List<string>();
         
         public string Description { get; set; }
     
         public int Count => foodList.Count;
-        public EaterType EaterType
-        { 
-            get { return eaterType; }
-            set { eaterType = value; }
+
+        private EaterType _eaterType;
+
+        public EaterType eaterType
+        {
+            get { return _eaterType; }
+            set
+            {
+                // you can add validation or logic here if needed
+                _eaterType = value;
+            }
         }
 
         public FoodSchedule()
@@ -77,7 +82,7 @@ namespace Assignment2VT25.Properties
 
         public override string ToString()
         {
-            return $"Eater Type: {EaterType}, Food Count: {Count}";
+            return $"Eater Type: {eaterType}, Food Count: {Count}";
         }
     }
 }

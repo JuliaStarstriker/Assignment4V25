@@ -1,7 +1,4 @@
-using Assignment1VT25.Properties;
-using Assignment2VT25.Assignment2V25;
-using Assignment2VT25.Properties;
-using Assignment3VT25;
+using Assignment4VT25;
 using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,7 +12,7 @@ using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace Assignment1VT25
+namespace Assignment4VT25
 {
     public partial class MainForm : Form
     {
@@ -28,6 +25,13 @@ namespace Assignment1VT25
 
             // Set the category list box's data to the values from the Category enum
             lbCategory.DataSource = Enum.GetValues(typeof(Category));
+
+            txtName.Text = "Erik";
+            txtAge.Text = "25";
+            textBox1.Text = "butiful";
+            textBox2.Text = "2";
+            textBox3.Text = "true";
+            textBox4.Text = "Amazing";
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -102,19 +106,22 @@ namespace Assignment1VT25
                 return;
 
             Animal animal = animalManager.GetAnimalAt(index);
-
+            //MessageBox.Show("parts[5]: " + animal+ index);
             FoodSchedule foodSchedule = animal.GetFoodSchedule();
+            //MessageBox.Show("parts[]: " + foodSchedule);
+            if (foodSchedule !=null )
+            {
+                lstFoodSchedule.Items.Clear();
+                lstFoodSchedule.Items.Add(foodSchedule.Title());
 
-            lstFoodSchedule.Items.Clear();
-            lstFoodSchedule.Items.Add(foodSchedule.Title());
+                lblEaterType.Text = foodSchedule.eaterType.ToString();
+                string[] foodList = foodSchedule.GetFoodListInfoStrings();
 
-            lblEaterType.Text = foodSchedule.EaterType.ToString();
-            string[] foodList = foodSchedule.GetFoodListInfoStrings();
+                lstFoodSchedule.Items.Clear();
+                lstFoodSchedule.Items.AddRange(foodList);
 
-            lstFoodSchedule.Items.Clear();
-            lstFoodSchedule.Items.AddRange(foodList);
-
-            lblCategory.Text = animal.GetExtraInfo();
+                lblCategory.Text = animal.GetExtraInfo();
+            }
         }
 
 
@@ -819,19 +826,36 @@ namespace Assignment1VT25
             //lstAnimals = animalManager.GetAnimalInfoStrings();
             string formattedEntry = $"Animals: {string.Join(", ", animalManager.GetAnimalInfoStrings())}";
 
+            var animalStrings = animalManager.GetAnimalInfoStrings();
+
             //string animalInfo = string.Format("{0,-5} {1,-15} Age: {2,-3} Gender: {3}",
             //                           "ID: " + animalManager.animal.Id, "Name: " + animal.name, animal.age, animal.gender);
-            //MessageBox.Show(animalManager.GetAnimalInfoStrings()[0]);
+            //MessageBox.Show(animalManager.GetAnimalInfoStrings()[1]);
 
-            string[] pelle = animalManager.GetAnimalInfoStrings()[0].Split(", ");
-
-            if (pelle.Length >= 4)
+            if(animalStrings.Length > 0)
             {
-                string animalInfo = string.Format("{0,-5} {1,-15} Age: {2,-3} Gender: {3}",
-                                          "ID: " + pelle[0], "Name: " + pelle[1], pelle[2], pelle[3]);
+                for(int i = 0; i < animalStrings.Length; i++)
+                {
+                    string[] pelle = animalManager.GetAnimalInfoStrings()[i].Split(", ");
 
-                this.lstAnimals.Items.Add(animalManager.GetAnimalInfoStrings()[0]);
-                //MessageBox.Show(pelle[1]);
+                    if (pelle.Length >= 4)
+                    {
+                        string animalInfo = string.Format("{0,-5} {1,-15} Age: {2,-3} Gender: {3}",
+                                                  "ID: " + pelle[0], "Name: " + pelle[1], pelle[2], pelle[3]);
+                        this.lstAnimals.Items.Add(animalInfo);
+                        //this.lstAnimals.Items.Add(animalManager.GetAnimalInfoStrings()[i]);
+                        //MessageBox.Show(pelle[1]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Animal data is in an unexpected format.");
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No animal data was loaded.");
             }
 
 

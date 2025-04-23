@@ -1,11 +1,11 @@
-﻿using Assignment2VT25.Properties;
+﻿using Assignment4VT25;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment1VT25.Properties
+namespace Assignment4VT25
 {
     public abstract class Insect : Animal
     {

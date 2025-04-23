@@ -1,1 +1,0 @@
-Bird,gr,Bird_NIEYS2,55,Male,Eagles

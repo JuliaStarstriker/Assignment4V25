@@ -1,4 +1,4 @@
-namespace Assignment1VT25
+namespace Assignment4VT25
 {
     internal static class Program
     {
