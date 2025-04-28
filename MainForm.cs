@@ -277,12 +277,12 @@ namespace Assignment4VT25
         /// <returns>bool if all textboxes are valid</returns>
         private bool ValidateFish()
         {
-            System.Diagnostics.Debug.WriteLine("Insect validera");
+            System.Diagnostics.Debug.WriteLine("Fish validera");
 
             lblOutput1.Text = "scaleColor";
             lblOutput2.Text = "isSaltwater";
 
-            string valueIsSaltwater = textBox3.Text;
+            string valueIsSaltwater = textBox2.Text;
             if (!bool.TryParse(valueIsSaltwater, out bool resultIsSaltwater))
             {
                 MessageBox.Show("isSaltwater must be either 'true' or 'false'.", "Validation Error");
