@@ -17,6 +17,8 @@ namespace Assignment4VT25
     public partial class MainForm : Form
     {
         AnimalManager animalManager = new AnimalManager();
+        private string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "animals.txt");
+
         public MainForm()
         {
             InitializeComponent();
@@ -815,12 +817,135 @@ namespace Assignment4VT25
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            animalManager.SaveToFile();
+            //animalManager.SaveToFile();
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (var animal in animalManager.GetAllAnimals())
+                    {
+                        // Save the animal's category and its properties
+                        string categoryType = animal.Category.ToString();
+                        string animalData = $"{categoryType},{animal.name},{animal.Id},{animal.age},{animal.gender},{animal.species}";
+                        writer.WriteLine(animalData);
+                    }
+                }
+                //MessageBox.Show("Animals saved successfully.");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"An error occurred while saving the file: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}");
+            }
         }
+        
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            animalManager.LoadFromFile();
+            //animalManager.LoadFromFile();
+
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            // Split the line into individual components (based on the delimiter)
+                            string[] parts = line.Split(',');
+
+                            //MessageBox.Show("Line: " + line);
+                            if (parts.Length == 6) // Ensure the format is correct
+                            {
+                                // Create the appropriate animal object based on category
+                                //Animal animal = CreateAnimalFromData(parts);
+                                //if (animal != null)
+                                //{
+                                //    animalList.Add(animal);
+                                //}
+                                Animal animal = null;
+
+                                switch (parts[5])
+                                {
+                                    case "Ants":
+                                        animal = new Ants();
+                                        break;
+                                    case "Butterflies":
+                                        animal = new Butterflies();
+                                        if (animal is Butterflies butterflies)
+                                        {
+                                            FoodSchedule schedule = butterflies.GetFoodSchedule();
+
+                                        }
+                                        break;
+                                    case "MonkFish":
+                                        animal = new MonkFish();
+                                        break;
+                                    case "Eel":
+                                        animal = new Eel();
+                                        break;
+                                    case "Eagles":
+                                        animal = new Eagles();
+                                        break;
+                                    case "Parrot":
+                                        animal = new Parrot();
+
+                                        break;
+                                    default:
+                                        MessageBox.Show("AnimalManager: no species was found");
+                                        break;
+                                }
+                                //MessageBox.Show("parts[5]: " + parts[5]);
+                                animal.species = Enum.TryParse(parts[5], true, out Species parsedSpecies) ? parsedSpecies : default;
+
+                                animal = new Butterflies();
+                                if (animal != null)
+                                {
+
+                                    animal.Id = parts[2];
+                                    animal.name = parts[1];
+                                    animal.age = int.Parse(parts[3]);
+                                    animal.gender = Enum.TryParse(parts[4], true, out GenderType parsedGender) ? parsedGender : default;
+                                    //animal.gender = Enum.TryParse(parts[4]);
+                                    // MessageBox.Show("parts[2]: " + parts[2]);
+                                    //animal = new Ants(name, id, age, gender, species);
+                                }
+                                if (animal != null)
+                                {
+                                    // Add the animal to the list
+                                    animalManager.animalList.Add(animal);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid data format in file.");
+                            }
+                        }
+                    }
+                    Console.WriteLine("Animals loaded successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("File not found. No animals to load.");
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"An error occurred while reading the file: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+            }
+            
+
+            //___________________________________________________________________________
 
 
             //lstAnimals = animalManager.GetAnimalInfoStrings();
