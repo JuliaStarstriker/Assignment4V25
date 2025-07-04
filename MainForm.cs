@@ -991,7 +991,7 @@ namespace Assignment4VT25
 
         private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            lstAnimals.Items.Clear();
         }
     }
 }
