@@ -2,11 +2,11 @@ This is a university-level assignment that I have completed.
 
 Objectives
 
-• Use serialization to store and load data in different ways using text files, and serialization in Json and XML formats.
+• Use serialization to store and load data in different ways using text files, and serialization in Json and XML formats
 
-• Handle exceptions.
+• Handle exceptions
 
-• Improve the graphical user interface with men.
+• Improve the graphical user interface with men
 
 Description
 
