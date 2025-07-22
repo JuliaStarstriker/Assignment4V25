@@ -6,7 +6,7 @@ Objectives
 
 • Handle exceptions.
 
-• Improve the graphical user interface with men
+• Improve the graphical user interface with men.
 
 Description
 
